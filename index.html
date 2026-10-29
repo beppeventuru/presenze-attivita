@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#102a27">
   <meta name="description" content="Presenze e timesheet della tua attività">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="style.css?v=agenda-total-2">
+  <link rel="stylesheet" href="style.css?v=cloud-sync-1">
   <title>Presenze · Attività</title>
 </head>
 <body>
@@ -18,6 +18,10 @@
       <div class="section-head"><div><p class="eyebrow">IL TUO CALENDARIO</p><h2>Prossime attività</h2></div><button id="addBtn" class="primary">＋ <span>Nuova attività</span></button></div>
       <div class="toolbar"><input id="monthFilter" type="month" aria-label="Filtra per mese"><button id="calendarBtn" class="secondary">↻ <span>Sincronizza Google</span></button></div>
       <div class="agenda-total"><span>ORE TOTALI</span><strong id="agendaTotalHours">0h 00m</strong></div>
+      <div class="sync-panel">
+        <div><strong>Sincronizzazione dispositivi</strong><p id="syncStatus" role="status">Sincronizzazione non attiva su questo dispositivo.</p></div>
+        <button id="syncBtn" class="secondary" type="button">Sincronizza dispositivi</button>
+      </div>
       <div id="calendarNotice" class="notice hidden"></div>
       <div id="eventList" class="event-list"></div>
     </section>
@@ -27,7 +31,7 @@
       <div class="hours-card"><div><span>ORE CONFERMATE</span><strong id="totalHours">0h 00m</strong></div><div class="hours-icon">◷</div></div>
       <div id="sheetRows" class="sheet-rows"></div>
     </section>
-    <footer>I dati restano salvati su questo dispositivo.</footer>
+    <footer>Agenda e presenze si sincronizzano sui dispositivi collegati. Le modifiche restano nell’app e non vengono scritte su Google Calendar.</footer>
   </main>
   <dialog id="eventDialog"><form id="eventForm" method="dialog"><div class="dialog-head"><div><p class="eyebrow">NUOVO APPUNTAMENTO</p><h2>Aggiungi attività</h2></div><button type="button" id="closeDialog" class="close" aria-label="Chiudi">×</button></div>
     <label>Nome attività<input name="title" required maxlength="80" placeholder="Es. Lezione individuale"></label>
@@ -37,7 +41,7 @@
     <button id="saveEvent" class="primary submit" type="submit">Aggiungi in agenda</button>
   </form></dialog>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
-  <script src="app.js?v=agenda-total-2"></script>
+  <script src="app.js?v=cloud-sync-1"></script>\n  <script type="module" src="firebase-sync.js?v=cloud-sync-1"></script>
 </body>
 </html>
 
