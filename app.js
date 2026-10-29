@@ -1,7 +1,8 @@
 const KEY='presenze-attivita-v1', GOOGLE_CLIENT_ID='855972123503-mbmtgn0ika0j8i46p61u2ok8d84ehn1g.apps.googleusercontent.com', GOOGLE_CALENDAR_ID='e0eb5f5c70c5e598f28130654f5f705c40a2f69cd22d7caa5990d5bec5114ec5@group.calendar.google.com';
 const $=s=>document.querySelector(s), today=new Date(), monthNow=()=>`${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}`;
 let events=JSON.parse(localStorage.getItem(KEY)||'[]'), editingId=null;
-const save=()=>localStorage.setItem(KEY,JSON.stringify(events));
+const save=()=>{localStorage.setItem(KEY,JSON.stringify(events));document.dispatchEvent(new CustomEvent('attendance:data-changed',{detail:{events}}))};
+document.addEventListener('attendance:remote-data',event=>{events=Array.isArray(event.detail?.events)?event.detail.events:[];render()});
 const fmtDate=s=>new Date(`${s}T12:00:00`).toLocaleDateString('it-IT',{weekday:'short',day:'2-digit',month:'short'});
 const mins=e=>{if(e.hours!==null&&e.hours!==undefined&&e.hours!=='')return Math.round(Number(e.hours)*60);const [sh,sm]=e.start.split(':').map(Number),[eh,em]=e.end.split(':').map(Number);return Math.max(0,eh*60+em-sh*60-sm)};
 const duration=m=>`${Math.floor(m/60)}h ${String(m%60).padStart(2,'0')}m`;
