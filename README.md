@@ -1,6 +1,6 @@
 # Presenze · La tua attività
 
-Web app installabile (PWA) su Android, pronta per la pubblicazione con GitHub Pages. Agenda e presenze sono salvate localmente nel browser del dispositivo (`localStorage`).
+Web app installabile (PWA) su Android, pubblicata con GitHub Pages: https://beppeventuru.github.io/presenze-attivita/. Agenda e presenze sono salvate localmente nel browser del dispositivo (`localStorage`).
 
 ## Funzioni presenti
 
@@ -18,12 +18,9 @@ Per importare gli appuntamenti basta il permesso di sola lettura `calendar.event
 
 ## Installazione sul telefono
 
-1. Crea un nuovo repository GitHub chiamato, per esempio, `presenze-attivita`.
-2. Carica **il contenuto di questa cartella** nella radice del repository (inclusa la cartella nascosta `.github`).
-3. In **Settings → Pages**, imposta la sorgente su **GitHub Actions**. Il workflow pubblica il sito a ogni push sul ramo principale.
-4. Dopo la prima pubblicazione, apri l'URL Pages in Chrome sul POCO e scegli **Installa app** o **Aggiungi a schermata Home** dal menu.
+Apri l'URL in Chrome sul POCO e scegli **Installa app** oppure **Aggiungi a schermata Home** dal menu.
 
-Quando conosci l'URL, crea un client OAuth web nel progetto Google Cloud e aggiungi come origine autorizzata l'origine del sito (es. `https://nomeutente.github.io`, senza il percorso del repository). In alternativa, l'app può prima essere usata senza collegamento al calendario.
+La pubblicazione si aggiorna a ogni push sul ramo `main`. Pages usa GitHub Actions come sorgente. Per Google Calendar crea un client OAuth web nel progetto Google Cloud, abilita Calendar API e aggiungi come origine JavaScript autorizzata `https://beppeventuru.github.io` (senza il percorso `/presenze-attivita/`). Al primo uso, il pulsante di sincronizzazione chiede il Client ID.
 
 Il manifest include icone PNG da 192 e 512 pixel, richieste dai criteri d'installazione Chrome; il sito deve essere pubblicato via HTTPS. I requisiti sono descritti nella [guida GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages) e nella [guida Chrome alle PWA installabili](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/).
 
