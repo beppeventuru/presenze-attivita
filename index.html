@@ -33,7 +33,7 @@
     <div class="form-row"><label>Data<input name="date" type="date" required></label><label>Inizio<input name="start" type="time" required value="09:00"></label></div>
     <div class="form-row"><label>Fine<input name="end" type="time" required value="10:00"></label><label>Ore svolte<input name="hours" type="number" min="0" max="24" step="0.25" placeholder="Da durata"></label></div>
     <label>Note<input name="notes" maxlength="160" placeholder="Facoltative"></label>
-    <button class="primary submit" type="submit">Aggiungi in agenda</button>
+    <button id="saveEvent" class="primary submit" type="submit">Aggiungi in agenda</button>
   </form></dialog>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script src="app.js"></script>
