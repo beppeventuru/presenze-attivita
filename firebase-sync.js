@@ -3,7 +3,7 @@ import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signO
 import { getFirestore, doc, getDoc, setDoc, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBw5tSSf6t2LsMNzfDly-Ae53cI0VVepY",
+  apiKey: "AIzaSyBw5tSSf6t2LsMNzfDly-Ae53cI0VVepdY",
   authDomain: "presenze-attivita.firebaseapp.com",
   projectId: "presenze-attivita",
   storageBucket: "presenze-attivita.firebasestorage.app",
