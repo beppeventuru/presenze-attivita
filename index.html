@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#102a27">
+  <meta name="description" content="Presenze e timesheet della tua attività">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+  <title>Presenze · Attività</title>
+</head>
+<body>
+  <header class="topbar"><div class="brand"><span class="brand-mark">P</span><div><strong>Presenze</strong><small>La tua attività</small></div></div><button id="installBtn" class="install hidden">Installa app</button></header>
+  <main>
+    <section class="intro"><p class="eyebrow">GESTIONE ATTIVITÀ</p><h1>Presenze e ore,<br><em>tutto in ordine.</em></h1><p class="lead">Conferma ogni ora svolta, aggiungi appuntamenti e prepara la timesheet mensile.</p></section>
+    <nav class="tabs"><button class="tab active" data-view="agenda">Agenda</button><button class="tab" data-view="timesheet">Timesheet</button></nav>
+    <section id="agendaView" class="view">
+      <div class="section-head"><div><p class="eyebrow">IL TUO CALENDARIO</p><h2>Prossime attività</h2></div><button id="addBtn" class="primary">＋ <span>Nuova attività</span></button></div>
+      <div class="toolbar"><input id="monthFilter" type="month" aria-label="Filtra per mese"><button id="calendarBtn" class="secondary">↻ <span>Sincronizza Google</span></button></div>
+      <div id="calendarNotice" class="notice hidden"></div>
+      <div id="eventList" class="event-list"></div>
+    </section>
+    <section id="timesheetView" class="view hidden">
+      <div class="section-head"><div><p class="eyebrow">RIEPILOGO</p><h2>Timesheet</h2></div></div>
+      <div class="toolbar"><input id="sheetMonth" type="month" aria-label="Mese timesheet"><button id="exportBtn" class="secondary">↓ <span>Esporta CSV</span></button></div>
+      <div class="hours-card"><div><span>ORE CONFERMATE</span><strong id="totalHours">0h 00m</strong></div><div class="hours-icon">◷</div></div>
+      <div id="sheetRows" class="sheet-rows"></div>
+    </section>
+    <footer>I dati restano salvati su questo dispositivo.</footer>
+  </main>
+  <dialog id="eventDialog"><form id="eventForm" method="dialog"><div class="dialog-head"><div><p class="eyebrow">NUOVO APPUNTAMENTO</p><h2>Aggiungi attività</h2></div><button type="button" id="closeDialog" class="close" aria-label="Chiudi">×</button></div>
+    <label>Nome attività<input name="title" required maxlength="80" placeholder="Es. Lezione individuale"></label>
+    <div class="form-row"><label>Data<input name="date" type="date" required></label><label>Inizio<input name="start" type="time" required value="09:00"></label></div>
+    <div class="form-row"><label>Fine<input name="end" type="time" required value="10:00"></label><label>Ore svolte<input name="hours" type="number" min="0" max="24" step="0.25" placeholder="Da durata"></label></div>
+    <label>Note<input name="notes" maxlength="160" placeholder="Facoltative"></label>
+    <button class="primary submit" type="submit">Aggiungi in agenda</button>
+  </form></dialog>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="app.js"></script>
+</body>
+</html>
+
