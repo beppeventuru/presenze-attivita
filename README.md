@@ -4,7 +4,7 @@ Web app installabile (PWA) su Android, pubblicata con GitHub Pages: https://bepp
 
 ## Funzioni presenti
 
-- aggiunta manuale di attività con data, orari, note e ore effettive facoltative;
+- aggiunta e modifica delle attività dall’agenda, con data, orari, note e ore effettive facoltative;
 - importazione dei soli eventi dal calendario Google **SCU Hackability**, con intervallo di 12 mesi passati e 12 futuri;
 - una casella indipendente per ogni ora prevista: una sessione di tre ore mostra tre caselle;
 - riepilogo mensile delle sole ore spuntate, con eventuali frazioni finali conteggiate in minuti;
