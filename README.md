@@ -1,30 +1,23 @@
 # Presenze · La tua attività
 
-Web app installabile (PWA) su Android, pubblicata con GitHub Pages: https://beppeventuru.github.io/presenze-attivita/. Agenda e presenze sono salvate localmente nel browser del dispositivo (`localStorage`).
+Web app installabile (PWA) su Android, pubblicata con GitHub Pages: https://beppeventuru.github.io/presenze-attivita/.
 
-## Funzioni presenti
+## Funzioni
 
-- aggiunta e modifica delle attività dall’agenda, con data, orari, note e ore effettive facoltative;
-- importazione dei soli eventi dal calendario Google **SCU Hackability**, con intervallo di 12 mesi passati e 12 futuri;
-- una casella indipendente per ogni ora prevista: una sessione di tre ore mostra tre caselle;
-- riepilogo mensile delle sole ore spuntate, con eventuali frazioni finali conteggiate in minuti;
-- esportazione della timesheet in CSV.
+- Importa gli eventi dal solo calendario Google **SCU Hackability**.
+- Conferma ogni ora prevista con una casella indipendente.
+- Aggiunge e modifica attività direttamente nell’app.
+- Mostra il riepilogo mensile delle ore confermate ed esporta la timesheet in CSV.
+- Sincronizza agenda e presenze tra i dispositivi con Firebase Authentication e Cloud Firestore.
 
-## Google Calendar
+## Sincronizzazione e privacy
 
-La sincronizzazione usa il progetto Google Cloud `Presenze Attivita`, Calendar API e un client OAuth Web limitato all'origine `https://beppeventuru.github.io`. Il Client ID pubblico è già configurato nell'app; non serve inserirlo a mano. L'app chiede a Google il solo permesso di lettura `calendar.events.readonly` e usa esclusivamente il calendario SCU Hackability. Non chiede né memorizza la password Google, il client secret o il token di accesso.
+Per attivare la sincronizzazione sul dispositivo, premi **Sincronizza dispositivi** e accedi con Google. L’accesso Google identifica l’utente; Firestore limita lettura e scrittura ai dati associati all’UID autenticato. Il progetto Firebase è sul piano Spark gratuito e Firestore usa la regione europea di Milano.
 
-L'app OAuth è ancora in modalità di test: al momento può autorizzarla soltanto l'account tester aggiunto al progetto Google. Google può mostrare una schermata di avviso perché l'app non è verificata.
+Le attività aggiunte o modificate nell’app vengono salvate su Firestore e sugli altri dispositivi collegati. Non vengono mai scritte su Google Calendar. L’importazione calendario usa il progetto Google Cloud `Presenze Attivita`, il calendario SCU Hackability e il solo permesso `calendar.events.readonly`.
 
-Le nuove attività vengono create solo nell'agenda interna dell'app e non sono scritte su Google Calendar.
+Il modulo Firebase contiene la configurazione web pubblica dell’app. Non contiene client secret o password. La sicurezza dei dati è applicata dalle regole Firestore.
 
-## Installazione sul telefono
+## Installazione
 
-Apri l'URL in Chrome sul POCO e scegli **Installa app** oppure **Aggiungi a schermata Home** dal menu.
-
-La pubblicazione si aggiorna a ogni push sul ramo `main`. Pages usa GitHub Actions come sorgente.
-
-Il manifest include icone PNG da 192 e 512 pixel, richieste dai criteri d'installazione Chrome; il sito deve essere pubblicato via HTTPS. I requisiti sono descritti nella [guida GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages) e nella [guida Chrome alle PWA installabili](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/).
-
-La timesheet rimane sul singolo dispositivo in questa versione. Per condividerla tra più dispositivi servirà aggiungere un archivio remoto e l'accesso utente.
-
+Apri l’URL in Chrome sul telefono e scegli **Installa app** oppure **Aggiungi a schermata Home** dal menu. La PWA richiede HTTPS; GitHub Pages pubblica l’app dal ramo `main`.
