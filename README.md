@@ -12,9 +12,11 @@ Web app installabile (PWA) su Android, pubblicata con GitHub Pages: https://bepp
 
 ## Google Calendar
 
-Per la sincronizzazione occorre creare un progetto Google Cloud, abilitare Calendar API, configurare una schermata di consenso e un client OAuth di tipo applicazione web, quindi aggiungere l'origine HTTPS pubblicata tra le origini JavaScript autorizzate. Al primo uso, il pulsante chiede il Client ID pubblico; viene salvato localmente. La bozza usa il consenso Google e il permesso di sola lettura. Non chiede né memorizza la password Google o il token di accesso. La sincronizzazione usa per ora il calendario principale `primary`.
+La sincronizzazione usa il progetto Google Cloud `Presenze Attivita`, Calendar API e un client OAuth Web limitato all'origine `https://beppeventuru.github.io`. Il Client ID pubblico è già configurato nell'app; non serve inserirlo a mano. L'app chiede a Google il solo permesso di lettura `calendar.events.readonly` e usa il calendario principale `primary`. Non chiede né memorizza la password Google, il client secret o il token di accesso.
 
-Per importare gli appuntamenti basta il permesso di sola lettura `calendar.events.readonly`. Le nuove attività vengono create solo nell'agenda interna dell'app e non sono scritte su Google Calendar.
+L'app OAuth è ancora in modalità di test: al momento può autorizzarla soltanto l'account tester aggiunto al progetto Google. Google può mostrare una schermata di avviso perché l'app non è verificata.
+
+Le nuove attività vengono create solo nell'agenda interna dell'app e non sono scritte su Google Calendar.
 
 ## Installazione sul telefono
 
